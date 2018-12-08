@@ -1,19 +1,11 @@
 import React from 'react';
-import {Icon} from "antd";
-
-const DEFAULT_WIDTH = 24;
-const DEFAULT_HEIGHT = 24;
-const DEFAULT_COLOR = '#000000';
+import {ActionIcon} from "./ActionIcon";
 
 export class CircleMinus extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="minus-circle" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='minus-circle'/>
         );
     }
 }
@@ -21,12 +13,8 @@ export class CircleMinus extends React.PureComponent {
 export class CirclePlus extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="plus-circle" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='plus-circle'/>
         );
     }
 }
@@ -34,12 +22,8 @@ export class CirclePlus extends React.PureComponent {
 export class SquareMinus extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="minus-square" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='minus-square'/>
         );
     }
 }
@@ -47,12 +31,8 @@ export class SquareMinus extends React.PureComponent {
 export class SquarePlus extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="plus-square" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='plus-square'/>
         );
     }
 }
@@ -60,12 +40,8 @@ export class SquarePlus extends React.PureComponent {
 export class ArrowRight extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="right" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='caret-right' theme='filled'/>
         );
     }
 }
@@ -73,12 +49,8 @@ export class ArrowRight extends React.PureComponent {
 export class ArrowDown extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="down" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='caret-down' theme='filled'/>
         );
     }
 }
@@ -86,38 +58,26 @@ export class ArrowDown extends React.PureComponent {
 export class Clippy extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="copy" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='copy'/>
         );
     }
 }
 
-export class RemoveCircle extends React.PureComponent {
+export class Delete extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="close-circle" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='delete'/>
         );
     }
 }
 
-export class AddCircle extends React.PureComponent {
+export class Cancel extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="plus-circle" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='close-circle'/>
         );
     }
 }
@@ -125,20 +85,8 @@ export class AddCircle extends React.PureComponent {
 export class Add extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <svg {...getIconStyle(style)}
-                     viewBox="0 0 40 40"
-                     fill="currentColor"
-                     preserveAspectRatio="xMidYMid meet"
-                >
-                    <g>
-                        <path d="m31.6 21.6h-10v10h-3.2v-10h-10v-3.2h10v-10h3.2v10h10v3.2z"/>
-                    </g>
-                </svg>
-            </span>
+            <ActionIcon {...props} icon='plus-circle'/>
         );
     }
 }
@@ -146,42 +94,19 @@ export class Add extends React.PureComponent {
 export class Edit extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
 
         return (
-            <span {...rest}>
-                <Icon type="edit" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='edit'/>
         );
     }
 }
 
-export class CheckCircle extends React.PureComponent {
+export class Check extends React.PureComponent {
     render() {
         const {props} = this;
-        const {style, ...rest} = props;
-
         return (
-            <span {...rest}>
-                <Icon type="check-circle" theme="twoTone" {...getIconStyle(style)}/>
-            </span>
+            <ActionIcon {...props} icon='check-circle'/>
         );
     }
 }
 
-
-function getIconStyle(style) {
-    if (!style) {
-        style = {};
-    }
-    return {
-        style: {
-            verticalAlign: 'middle',
-            ...style,
-            color: style.color ? style.color : DEFAULT_COLOR,
-            height: '1em',
-            width: '1em',
-            marginRight: "6px"
-        }
-    };
-}

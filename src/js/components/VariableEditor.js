@@ -15,7 +15,7 @@ import {
     JsonString,
     JsonUndefined
 } from './DataTypes/DataTypes';
-import {CheckCircle, Edit, RemoveCircle as Remove} from './icons';
+import {Cancel, Check, Delete, Edit} from './icons';
 import Theme from './../themes/getStyle';
 import {Input} from "antd";
 
@@ -57,7 +57,7 @@ class VariableEditor extends React.PureComponent {
                 {...Theme(theme, 'objectKeyVal', {
                     paddingLeft: indentWidth * singleIndent
                 })}
-                class="variable-row"
+                className="variable-row"
                 key={variable.name}
             >
                 {type == 'array' ? (
@@ -72,7 +72,7 @@ class VariableEditor extends React.PureComponent {
                     <span>
                         <span
                             {...Theme(theme, 'object-name')}
-                            class="object-key"
+                            className="object-key"
                             key={variable.name + '_' + namespace}
                         >
                             <span style={{verticalAlign: 'top'}}>"</span>
@@ -85,7 +85,7 @@ class VariableEditor extends React.PureComponent {
                     </span>
                 )}
                 <div
-                    class="variable-value"
+                    className="variable-value"
                     onClick={
                         onSelect === false && onEdit === false
                             ? null
@@ -130,9 +130,9 @@ class VariableEditor extends React.PureComponent {
         const {variable, theme} = this.props;
 
         return (
-            <div class="click-to-edit" style={{verticalAlign: 'top'}}>
+            <div className="click-to-edit" style={{verticalAlign: 'top'}}>
                 <Edit
-                    class="click-to-edit-icon"
+                    className="click-to-edit-icon"
                     {...Theme(theme, 'editVarIcon')}
                     onClick={() => {
                         this.prepopInput(variable);
@@ -140,7 +140,7 @@ class VariableEditor extends React.PureComponent {
                 />
             </div>
         );
-    }
+    };
 
     prepopInput = variable => {
         if (this.props.onEdit !== false) {
@@ -155,28 +155,27 @@ class VariableEditor extends React.PureComponent {
                 }
             });
         }
-    }
+    };
 
     getRemoveIcon = () => {
         const {variable, namespace, theme, rjvId} = this.props;
 
         return (
-            <div class="click-to-remove" style={{verticalAlign: 'top'}}>
-                <Remove
-                    class="click-to-remove-icon"
-                    {...Theme(theme, 'removeVarIcon')}
-                    onClick={() => {
-                        dispatcher.dispatch({
-                            name: 'VARIABLE_REMOVED',
-                            rjvId: rjvId,
-                            data: {
-                                name: variable.name,
-                                namespace: namespace,
-                                existing_value: variable.value,
-                                variable_removed: true
-                            }
-                        });
-                    }}
+            <div className="click-to-remove" style={{verticalAlign: 'top'}}>
+                <Delete className="click-to-remove-icon"
+                        {...Theme(theme, 'removeVarIcon')}
+                        onClick={() => {
+                            dispatcher.dispatch({
+                                name: 'VARIABLE_REMOVED',
+                                rjvId: rjvId,
+                                data: {
+                                    name: variable.name,
+                                    namespace: namespace,
+                                    existing_value: variable.value,
+                                    variable_removed: true
+                                }
+                            });
+                        }}
                 />
             </div>
         );
@@ -211,7 +210,7 @@ class VariableEditor extends React.PureComponent {
             default:
                 // catch-all for types that weren't anticipated
                 return (
-                    <div class="object-value">
+                    <div className="object-value">
                         {JSON.stringify(variable.value)}
                     </div>
                 );
@@ -228,7 +227,7 @@ class VariableEditor extends React.PureComponent {
                     autosize
                     type="text"
                     value={editValue}
-                    class="variable-editor"
+                    className="variable-editor"
                     onChange={event => {
                         const value = event.target.value;
                         const detected = parseInput(value);
@@ -262,21 +261,20 @@ class VariableEditor extends React.PureComponent {
                     {...Theme(theme, 'edit-input')}
                 />
                 <div {...Theme(theme, 'edit-icon-container')}>
-                    <Remove
-                        class="edit-cancel"
+                    <Cancel
+                        className="edit-cancel"
                         {...Theme(theme, 'cancel-icon')}
                         onClick={() => {
                             this.setState({editMode: false, editValue: ''});
                         }}
                     />
-                    <CheckCircle
-                        class="edit-check string-value"
+                    <Check
+                        className="edit-check string-value"
                         {...Theme(theme, 'check-icon')}
                         onClick={() => {
                             this.submitEdit();
                         }}
                     />
-                    <div>{this.showDetected()}</div>
                 </div>
             </div>
         );
@@ -314,8 +312,8 @@ class VariableEditor extends React.PureComponent {
                 <div>
                     <div {...Theme(theme, 'detected-row')}>
                         {detected}
-                        <CheckCircle
-                            class="edit-check detected"
+                        <Check
+                            className="edit-check detected"
                             style={{
                                 verticalAlign: 'top',
                                 paddingLeft: '3px',
@@ -417,7 +415,7 @@ class VariableEditor extends React.PureComponent {
                     return <JsonDate value={new Date(value)} {...props} />;
             }
         }
-    }
+    };
 }
 
 export default VariableEditor;

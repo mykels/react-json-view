@@ -1,14 +1,12 @@
 import React from "react"
 import ReactSelect from "react-select"
 import ReactJson from "./../../../../src/js/index"
-import GitHubButton from "react-github-button"
 
 import Code from "./../helpers/Code"
 import "./../../style/scss/rjv-demo.scss"
 import "react-select/dist/react-select.css"
 import "react-github-button/assets/style.css"
 
-//index entrypoint component
 export default class extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -46,7 +44,7 @@ export default class extends React.PureComponent {
             indentWidth,
             displayDataTypes
         } = this.props;
-        const { src } = this.state;
+        const {src} = this.state;
         const style = {
             padding: "10px",
             borderRadius: "3px",
@@ -54,26 +52,7 @@ export default class extends React.PureComponent {
         };
 
         return (
-            <div class="rjv-demo">
-                <div class="rjv-header">
-                    <div class="header-1">react-json-view</div>
-                    <div class="header-2">component demo</div>
-                    <img
-                        class="rjv-logo"
-                        src="https://github.com/mac-s-g/react-json-view/blob/master/doc/rjv-icon-alt.png?raw=true"
-                        onClick={() => {
-                            window.open(
-                                "https://github.com/mac-s-g/react-json-view",
-                                "_blank"
-                            )
-                        }}
-                    />
-                    <GitHubButton
-                        type="stargazers"
-                        namespace="mac-s-g"
-                        repo="react-json-view"
-                    />
-                </div>
+            <div className="rjv-demo">
                 <ReactJson
                     name={false}
                     collapsed={collapsed}
@@ -84,25 +63,25 @@ export default class extends React.PureComponent {
                     onEdit={
                         onEdit
                             ? e => {
-                                  console.log(e)
-                                  this.setState({ src: e.updated_src })
-                              }
+                                console.log(e)
+                                this.setState({src: e.updated_src})
+                            }
                             : false
                     }
                     onDelete={
                         onDelete
                             ? e => {
-                                  console.log(e)
-                                  this.setState({ src: e.updated_src })
-                              }
+                                console.log(e)
+                                this.setState({src: e.updated_src})
+                            }
                             : false
                     }
                     onAdd={
                         onAdd
                             ? e => {
-                                  console.log(e)
-                                  this.setState({ src: e.updated_src })
-                              }
+                                console.log(e)
+                                this.setState({src: e.updated_src})
+                            }
                             : false
                     }
                     displayObjectSize={displayObjectSize}
@@ -112,52 +91,52 @@ export default class extends React.PureComponent {
                     iconStyle={iconStyle}
                 />
 
-                <div class="rjv-settings">
-                    <div class="rjv-input">
-                        <div class="rjv-label">Theme:</div>
+                <div className="rjv-settings">
+                    <div className="rjv-input">
+                        <div className="rjv-label">Theme:</div>
                         {this.getThemeInput(theme)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Icon Style:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Icon Style:</div>
                         {this.getIconStyleInput(iconStyle)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Enable Edit:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Enable Edit:</div>
                         {this.getEditInput(onEdit)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Enable Add:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Enable Add:</div>
                         {this.getAddInput(onAdd)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Enable Delete:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Enable Delete:</div>
                         {this.getDeleteInput(onDelete)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Enable Clipboard:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Enable Clipboard:</div>
                         {this.getEnableClipboardInput(enableClipboard)}
                     </div>
                 </div>
 
-                <div class="rjv-settings">
-                    <div class="rjv-input">
-                        <div class="rjv-label">Display Data Types:</div>
+                <div className="rjv-settings">
+                    <div className="rjv-input">
+                        <div className="rjv-label">Display Data Types:</div>
                         {this.getDataTypesInput(displayDataTypes)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Display Object Size:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Display Object Size:</div>
                         {this.getObjectSizeInput(displayObjectSize)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Indent Width:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Indent Width:</div>
                         {this.getIndentWidthInput(indentWidth)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">Collapsed:</div>
+                    <div className="rjv-input">
+                        <div className="rjv-label">Collapsed:</div>
                         {this.getCollapsedInput(collapsed)}
                     </div>
-                    <div class="rjv-input">
-                        <div class="rjv-label">
+                    <div className="rjv-input">
+                        <div className="rjv-label">
                             Collapse Strings After Length:
                         </div>
                         {this.getCollapsedStringsInput(collapseStringsAfter)}
@@ -208,7 +187,7 @@ export default class extends React.PureComponent {
         }
 
         return (
-            <div style={{ marginTop: "20px", fontStyle: "italic" }}>
+            <div style={{marginTop: "20px", fontStyle: "italic"}}>
                 Keyboard Shortcuts
                 <ul>
                     {notes.map(note => {
@@ -225,9 +204,9 @@ export default class extends React.PureComponent {
                 name="icon-style"
                 value={iconStyle}
                 options={[
-                    { value: "circle", label: "circle" },
-                    { value: "square", label: "square" },
-                    { value: "triangle", label: "triangle" }
+                    {value: "circle", label: "circle"},
+                    {value: "square", label: "square"},
+                    {value: "triangle", label: "triangle"}
                 ]}
                 onChange={val => {
                     this.set("iconStyle", val)
@@ -242,8 +221,8 @@ export default class extends React.PureComponent {
                 name="enable-edit"
                 value={onEdit}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"}
                 ]}
                 onChange={val => {
                     this.set("onEdit", val)
@@ -258,8 +237,8 @@ export default class extends React.PureComponent {
                 name="enable-add"
                 value={onAdd}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"}
                 ]}
                 onChange={val => {
                     this.set("onAdd", val)
@@ -274,8 +253,8 @@ export default class extends React.PureComponent {
                 name="enable-delete"
                 value={onDelete}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"}
                 ]}
                 onChange={val => {
                     this.set("onDelete", val)
@@ -290,8 +269,8 @@ export default class extends React.PureComponent {
                 name="enable-clipboard"
                 value={enableClipboard}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"}
                 ]}
                 onChange={val => {
                     this.set("enableClipboard", val)
@@ -306,8 +285,8 @@ export default class extends React.PureComponent {
                 name="display-object-size"
                 value={displayObjectSize}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"}
                 ]}
                 onChange={val => {
                     this.set("displayObjectSize", val)
@@ -322,8 +301,8 @@ export default class extends React.PureComponent {
                 name="display-data-types"
                 value={displayDataTypes}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"}
                 ]}
                 onChange={val => {
                     this.set("displayDataTypes", val)
@@ -338,11 +317,11 @@ export default class extends React.PureComponent {
                 name="collapse-strings"
                 value={collapseStringsAfter}
                 options={[
-                    { value: false, label: "false" },
-                    { value: 5, label: 5 },
-                    { value: 10, label: 10 },
-                    { value: 15, label: 15 },
-                    { value: 20, label: 20 }
+                    {value: false, label: "false"},
+                    {value: 5, label: 5},
+                    {value: 10, label: 10},
+                    {value: 15, label: 15},
+                    {value: 20, label: 20}
                 ]}
                 onChange={val => {
                     this.set("collapseStringsAfter", val)
@@ -357,10 +336,10 @@ export default class extends React.PureComponent {
                 name="collapsed"
                 value={collapsed}
                 options={[
-                    { value: true, label: "true" },
-                    { value: false, label: "false" },
-                    { value: 1, label: 1 },
-                    { value: 2, label: 2 }
+                    {value: true, label: "true"},
+                    {value: false, label: "false"},
+                    {value: 1, label: 1},
+                    {value: 2, label: 2}
                 ]}
                 onChange={val => {
                     this.set("collapsed", val)
@@ -375,17 +354,17 @@ export default class extends React.PureComponent {
                 name="indent-width"
                 value={indentWidth}
                 options={[
-                    { value: 0, label: 0 },
-                    { value: 1, label: 1 },
-                    { value: 2, label: 2 },
-                    { value: 3, label: 3 },
-                    { value: 4, label: 4 },
-                    { value: 5, label: 5 },
-                    { value: 6, label: 6 },
-                    { value: 7, label: 7 },
-                    { value: 8, label: 8 },
-                    { value: 9, label: 9 },
-                    { value: 10, label: 10 }
+                    {value: 0, label: 0},
+                    {value: 1, label: 1},
+                    {value: 2, label: 2},
+                    {value: 3, label: 3},
+                    {value: 4, label: 4},
+                    {value: 5, label: 5},
+                    {value: 6, label: 6},
+                    {value: 7, label: 7},
+                    {value: 8, label: 8},
+                    {value: 9, label: 9},
+                    {value: 10, label: 10}
                 ]}
                 onChange={val => {
                     this.set("indentWidth", val)
@@ -400,52 +379,52 @@ export default class extends React.PureComponent {
                 name="theme-select"
                 value={theme}
                 options={[
-                    { value: "apathy", label: "apathy" },
-                    { value: "apathy:inverted", label: "apathy:inverted" },
-                    { value: "ashes", label: "ashes" },
-                    { value: "bespin", label: "bespin" },
-                    { value: "brewer", label: "brewer" },
-                    { value: "bright:inverted", label: "bright:inverted" },
-                    { value: "bright", label: "bright" },
-                    { value: "chalk", label: "chalk" },
-                    { value: "codeschool", label: "codeschool" },
-                    { value: "colors", label: "colors" },
-                    { value: "eighties", label: "eighties" },
-                    { value: "embers", label: "embers" },
-                    { value: "flat", label: "flat" },
-                    { value: "google", label: "google" },
-                    { value: "grayscale", label: "grayscale" },
+                    {value: "apathy", label: "apathy"},
+                    {value: "apathy:inverted", label: "apathy:inverted"},
+                    {value: "ashes", label: "ashes"},
+                    {value: "bespin", label: "bespin"},
+                    {value: "brewer", label: "brewer"},
+                    {value: "bright:inverted", label: "bright:inverted"},
+                    {value: "bright", label: "bright"},
+                    {value: "chalk", label: "chalk"},
+                    {value: "codeschool", label: "codeschool"},
+                    {value: "colors", label: "colors"},
+                    {value: "eighties", label: "eighties"},
+                    {value: "embers", label: "embers"},
+                    {value: "flat", label: "flat"},
+                    {value: "google", label: "google"},
+                    {value: "grayscale", label: "grayscale"},
                     {
                         value: "grayscale:inverted",
                         label: "grayscale:inverted"
                     },
-                    { value: "greenscreen", label: "greenscreen" },
-                    { value: "harmonic", label: "harmonic" },
-                    { value: "hopscotch", label: "hopscotch" },
-                    { value: "isotope", label: "isotope" },
-                    { value: "marrakesh", label: "marrakesh" },
-                    { value: "mocha", label: "mocha" },
-                    { value: "monokai", label: "monokai" },
-                    { value: "ocean", label: "ocean" },
-                    { value: "paraiso", label: "paraiso" },
-                    { value: "pop", label: "pop" },
-                    { value: "railscasts", label: "railscasts" },
-                    { value: "rjv-default", label: "rjv-default" },
-                    { value: "shapeshifter", label: "shapeshifter" },
+                    {value: "greenscreen", label: "greenscreen"},
+                    {value: "harmonic", label: "harmonic"},
+                    {value: "hopscotch", label: "hopscotch"},
+                    {value: "isotope", label: "isotope"},
+                    {value: "marrakesh", label: "marrakesh"},
+                    {value: "mocha", label: "mocha"},
+                    {value: "monokai", label: "monokai"},
+                    {value: "ocean", label: "ocean"},
+                    {value: "paraiso", label: "paraiso"},
+                    {value: "pop", label: "pop"},
+                    {value: "railscasts", label: "railscasts"},
+                    {value: "rjv-default", label: "rjv-default"},
+                    {value: "shapeshifter", label: "shapeshifter"},
                     {
                         value: "shapeshifter:inverted",
                         label: "shapeshifter:inverted"
                     },
-                    { value: "solarized", label: "solarized" },
-                    { value: "summerfruit", label: "summerfruit" },
+                    {value: "solarized", label: "solarized"},
+                    {value: "summerfruit", label: "summerfruit"},
                     {
                         value: "summerfruit:inverted",
                         label: "summerfruit:inverted"
                     },
-                    { value: "threezerotwofour", label: "threezerotwofour" },
-                    { value: "tomorrow", label: "tomorrow" },
-                    { value: "tube", label: "tube" },
-                    { value: "twilight", label: "twilight" }
+                    {value: "threezerotwofour", label: "threezerotwofour"},
+                    {value: "tomorrow", label: "tomorrow"},
+                    {value: "tube", label: "tube"},
+                    {value: "twilight", label: "twilight"}
                 ]}
                 onChange={val => {
                     this.set("theme", val)

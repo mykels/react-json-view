@@ -1,7 +1,7 @@
 import React from 'react';
 import dispatcher from './../../helpers/dispatcher';
 
-import {CheckCircle, Add as Cancel} from './../icons';
+import {Check, Add as Cancel} from './../icons';
 
 //global theme
 import Theme from './../../themes/getStyle';
@@ -24,7 +24,7 @@ export default class extends React.PureComponent {
 
         return (
             <div
-                class="key-modal-request"
+                className="key-modal-request"
                 {...Theme(theme, 'key-modal-request')}
                 onClick={this.closeModal}
             >
@@ -37,7 +37,7 @@ export default class extends React.PureComponent {
                     </div>
                     <div style={{position: 'relative'}}>
                         <input {...Theme(theme, 'key-modal-input')}
-                            class="key-modal-input"
+                            className="key-modal-input"
                             ref={el => el && el.focus()}
                             spellCheck={false}
                             value={input}
@@ -56,15 +56,15 @@ export default class extends React.PureComponent {
                             }}
                         />
                         {valid
-                            ? <CheckCircle {...Theme(theme, 'key-modal-submit')}
-                                class="key-modal-submit"
-                                onClick={e => this.submit()}
+                            ? <Check {...Theme(theme, 'key-modal-submit')}
+                                     className="key-modal-submit"
+                                     onClick={e => this.submit()}
                             />
                             : null}
                     </div>
                     <span {...Theme(theme, 'key-modal-cancel')}>
                         <Cancel {...Theme(theme, 'key-modal-cancel-icon')}
-                            class="key-modal-cancel"
+                            className="key-modal-cancel"
                             onClick={()=>{
                                 dispatcher.dispatch({
                                     rjvId: rjvId,

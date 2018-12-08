@@ -6,7 +6,7 @@ export default class extends React.PureComponent {
 
     render() {
         const {...props} = this.state;
-        return (<div class="mac-react" >
+        return (<div className="mac-react" >
             <ReactJsonDemo />
         </div>);
     }
