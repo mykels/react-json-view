@@ -1,21 +1,17 @@
 import React from 'react';
 import {polyfill} from 'react-lifecycles-compat';
-import { toType } from './../../helpers/util';
-
+import {toType} from './../../helpers/util';
 //data type components
-import { JsonObject } from './DataTypes';
+import {JsonObject} from './DataTypes';
 
 import VariableEditor from './../VariableEditor';
 import VariableMeta from './../VariableMeta';
 import ArrayGroup from './../ArrayGroup';
 import ObjectName from './../ObjectName';
-
 //attribute store
 import AttributeStore from './../../stores/ObjectAttributes';
-
 //icons
-import { CollapsedIcon, ExpandedIcon } from './../ToggleIcons';
-
+import {CollapsedIcon, ExpandedIcon} from './../ToggleIcons';
 //theme
 import Theme from './../../themes/getStyle';
 
@@ -63,7 +59,7 @@ class RjvObject extends React.PureComponent {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        const { prevProps } = prevState;
+        const {prevProps} = prevState;
         if (nextProps.src !== prevProps.src ||
             nextProps.collapsed !== prevProps.collapsed ||
             nextProps.name !== prevProps.name ||
@@ -106,7 +102,7 @@ class RjvObject extends React.PureComponent {
     }
 
     getEllipsis = () => {
-        const { size } = this.state;
+        const {size} = this.state;
 
         if (size === 0) {
             //don't render an ellipsis when an object has no items
@@ -125,13 +121,13 @@ class RjvObject extends React.PureComponent {
     }
 
     getObjectMetaData = src => {
-        const { rjvId, theme } = this.props;
-        const { size } = this.state;
+        const {rjvId, theme} = this.props;
+        const {size} = this.state;
         return <VariableMeta size={size} {...this.props} />;
     }
 
     getBraceStart(object_type, expanded) {
-        const { src, theme, iconStyle, parent_type } = this.props;
+        const {src, theme, iconStyle, parent_type} = this.props;
 
         if (parent_type === 'array_group') {
             return (
@@ -158,7 +154,7 @@ class RjvObject extends React.PureComponent {
                         class="icon-container"
                         {...Theme(theme, 'icon-container')}
                     >
-                        <IconComponent {...{ theme, iconStyle }} />
+                        <IconComponent {...{theme, iconStyle}} />
                     </div>
                     <ObjectName {...this.props} />
                     <span {...Theme(theme, 'brace')}>
@@ -186,7 +182,7 @@ class RjvObject extends React.PureComponent {
             ...rest
         } = this.props;
 
-        const { object_type, expanded } = this.state;
+        const {object_type, expanded} = this.state;
 
         let styles = {};
         if (!jsvRoot && parent_type !== 'array_group') {
@@ -232,7 +228,7 @@ class RjvObject extends React.PureComponent {
             groupArraysAfterLength,
             namespace
         } = this.props;
-        const { object_type } = this.state;
+        const {object_type} = this.state;
         let theme = props.theme;
         let elements = [],
             variable;

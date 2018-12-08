@@ -1,10 +1,10 @@
 {
-    "name": "react-json-view",
-    "description":
-        "Interactive react component for displaying javascript arrays and JSON objects.",
-    "version": "1.19.1",
+    "name": "react-json-view-antd",
+    "description": "Interactive react component for displaying javascript arrays and JSON objects using ant design.",
+    "version": "1.0.2",
     "main": "dist/main.js",
     "dependencies": {
+        "antd": "^3.11.0",
         "flux": "^3.1.3",
         "react-base16-styling": "^0.6.0",
         "react-lifecycles-compat": "^3.0.4",
@@ -35,7 +35,7 @@
         "jsdom": "^11.11.0",
         "mocha": "^4.0.1",
         "moment": "^2.22.2",
-        "node": "8.4.0",
+        "node": "11.3.0",
         "node-sass": "^4.9.0",
         "nyc": "^11.9.0",
         "react": "^16.4.0",
@@ -56,17 +56,13 @@
         "react-dom": "^16.0.0 || ^15.5.4"
     },
     "scripts": {
-        "build":
-            "webpack --config webpack/webpack.config.js -p --display-error-details --progress --optimize-minimize",
+        "build": "webpack --config webpack/webpack.config.js -p --display-error-details --progress --optimize-minimize",
         "prebuild": "npm run test:unit",
-        "build:demo":
-            "webpack --config webpack/webpack.config-demo.js -p --display-error-details --progress --optimize-minimize",
-        "dev":
-            "webpack-dev-server --config webpack/webpack.config-dev.js --open",
+        "build:demo": "webpack --config webpack/webpack.config-demo.js -p --display-error-details --progress --optimize-minimize",
+        "dev": "webpack-dev-server --config webpack/webpack.config-dev.js --open",
         "modules:debug": "./docker/debug.sh",
         "modules:tree": "webpack --config webpack/webpack.config.js --json ",
-        "modules:size-analyzer":
-            "webpack --config webpack/webpack.config.js --json | webpack-bundle-size-analyzer",
+        "modules:size-analyzer": "webpack --config webpack/webpack.config.js --json | webpack-bundle-size-analyzer",
         "test": "npm run test:unit && npm run test:coverage",
         "test:unit": "nyc mocha test/**/*-test.js",
         "test:coverage": "nyc report --reporter=text-lcov | coveralls",

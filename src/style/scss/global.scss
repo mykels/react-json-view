@@ -1,46 +1,62 @@
+@import '~antd/dist/antd.css';
+
 .react-json-view {
-    .copy-to-clipboard-container {
-        vertical-align: top;
-        display: none;
+  .copy-to-clipboard-container {
+    vertical-align: top;
+    display: none;
+  }
+
+  .click-to-add {
+    display: none;
+  }
+
+  .click-to-remove {
+    display: none;
+  }
+
+  .click-to-edit {
+    display: none;
+  }
+
+  .object-key-val {
+    &:hover > span > .object-meta-data {
+      & > .copy-to-clipboard-container {
+        display: inline-block;
+      }
+
+      & > .click-to-add {
+        display: inline-block;
+      }
+
+      & > .click-to-remove {
+        display: inline-block;
+      }
     }
-    .click-to-add {
-        display: none;
+  }
+
+  .variable-row {
+    &:hover {
+      & .copy-to-clipboard-container {
+        display: inline-block;
+      }
     }
-    .click-to-remove {
-        display: none;
-    }
-    .click-to-edit {
-        display: none;
+  }
+
+  .object-content .variable-row {
+    &:hover .click-to-remove {
+      display: inline-block;
     }
 
-    .object-key-val {
-        &:hover > span > .object-meta-data {
-            & > .copy-to-clipboard-container {
-                display: inline-block;
-            }
-            & > .click-to-add {
-                display: inline-block;
-            }
-            & > .click-to-remove {
-                display: inline-block;
-            }
-        }
+    &:hover .click-to-edit {
+      display: inline-block;
     }
+  }
 
-    .variable-row {
-        &:hover {
-            & .copy-to-clipboard-container {
-                display: inline-block;
-            }
-        }
+  svg {
+    &:hover {
+      transform: scale(1.2);
+      transition: .2s linear;
+      will-change: transform;
     }
-
-    .object-content .variable-row {
-        &:hover .click-to-remove {
-            display: inline-block;
-        }
-        &:hover .click-to-edit {
-            display: inline-block;
-        }
-    }
+  }
 }

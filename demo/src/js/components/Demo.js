@@ -30,7 +30,7 @@ export default class extends React.PureComponent {
         indentWidth: 4,
         displayDataTypes: true,
         iconStyle: "triangle"
-    }
+    };
 
     render() {
         const {
@@ -51,7 +51,7 @@ export default class extends React.PureComponent {
             padding: "10px",
             borderRadius: "3px",
             margin: "10px 0px"
-        }
+        };
 
         return (
             <div class="rjv-demo">
